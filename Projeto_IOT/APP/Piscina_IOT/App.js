@@ -22,6 +22,7 @@ export default function App() {
       <Stack.Screen 
        name="Home"
        component={Home} 
+       {props => <HomeScreen {...props} extraData={someData} />}
        options={{ headerShown: false }}
 
        />
