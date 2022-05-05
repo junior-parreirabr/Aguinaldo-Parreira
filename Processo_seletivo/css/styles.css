@@ -1,0 +1,135 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.txt_form{
+  font-size: 14px;
+  font: normal normal Arial;
+  color: #9C9B99;
+}
+.txt_gray{
+	font-size:18px;
+	color:#707070;
+  font: normal normal Arial;
+}
+.txt_gray2{
+	font-size:11px;
+	color:#707070;
+  font: normal normal Arial;
+}
+.txt_gray3{
+	font-size:10px;
+	color:#9C9B99;
+  font: normal normal Arial;
+}
+.txt_title{
+	font-size:24px;
+	color:#C83D2F!important;
+	font-weight: bold;
+  font: normal normal Arial;
+}
+.txt_red{
+	font-size:18px;
+	color:#C83D2F!important;
+	font-weight: bold;
+  font: normal normal Arial;
+}
+.txt_stepper{
+	font-size:10px;
+	color:#C83D2F!important;
+	font-weight: bold;
+  font: normal normal bold Arial;
+  max-width: 80px;
+
+}
+.txt_imgCard{
+  font-size:10px;
+  font: normal normal Arial;
+  color:#707070;
+  max-width: 60px;
+}
+.border_items{
+	border-right:1px solid;
+	border-left:1px solid;
+	border-color:#E5E5E5;
+	
+}
+.card_images{
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 90px;
+  padding:20px;
+}
+.card_images_row{
+  align-items: center;
+  justify-content: center;
+  margin:0px;
+  
+}
+.btn_pg2{
+  width: 100%;
+  height: 100%;
+  padding-top:10px;
+  padding-bottom:10px;
+  border: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	font-size:12px;
+	color:#989898;
+  font: normal normal Arial;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	font-size:12px;
+	color:#989898;
+  font: normal normal Arial;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	font-size:12px;
+	color:#989898;
+  font: normal normal Arial;
+}
+@media screen and (max-width: 600px){
+	.container{
+		width:90vw!important;
+		height:90vh!important;
+	}
+}
