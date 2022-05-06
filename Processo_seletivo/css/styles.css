@@ -57,6 +57,11 @@ body {
 	color:#9C9B99;
   font: normal normal Arial;
 }
+.txt_gray4{
+  font-size:16px;
+	color:#707070;
+  font: normal normal Arial;
+}
 .txt_title{
 	font-size:24px;
 	color:#C83D2F!important;
@@ -83,6 +88,7 @@ body {
   color:#707070;
   max-width: 60px;
 }
+
 .border_items{
 	border-right:1px solid;
 	border-left:1px solid;
