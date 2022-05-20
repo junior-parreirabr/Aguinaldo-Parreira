@@ -37,14 +37,14 @@
   
 	<body class="text-center col">
 	
-	<div class="top-0 position-absolute col-12" style="background-color:#C83D2F;height: 22.8vh;"></div>
+	<div class="top-0 position-absolute col-12 header_red"></div>
    
-	<div class="container p-3 bg-light position-absolute shadow start-50 translate-middle-x" style="top:5vh;width:24vw;min-height:80vh;padding-top:0px!important">
-	<main class="form-signin " style="width: 100%!important;">
+	<div class="container p-3 bg-light position-absolute shadow start-50 translate-middle-x caixa_branca">
+	<main class="form-signin ">
 	
 		<div style="margin-bottom:30px;">
 			
-			<div class = "row" style="white-space: nowrap;"><label class="txt_title">Cadastre-se Gratuitamente</label></div>
+			<div class = "row " style="white-space: nowrap;"><label class="txt_title">Cadastre-se Gratuitamente</label></div>
 			<div class = "row"><label class = "txt_gray">e tenha um plano vitalício com</label></div>
 			
 			<div class = "row">
@@ -69,13 +69,13 @@
 		<div class="position-relative m-4 " style="margin-bottom: 50px!important;">
 		
 			<div class="progress" style="height: 1px;">
-				<div class="progress-bar bg-danger" role="progressbar" style="width: 0%;background-color:#C83D2F;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress-bar bg-danger vermelho" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>
 			
 			<div class="p-1">
-				<button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-danger rounded-pill" style="width: 10px; height:17px;background-color:#C83D2F;"></button>
-				<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 10px; height:17px;"></button>
-				<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 10px; height:17px;"></button>
+				<button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-danger rounded-pill small_btn vermelho"></button>
+				<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill small_btn"></button>
+				<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill small_btn"></button>
 			</div>
 
 			<label class = "txt_stepper position-absolute translate-middle-x top-100 p-1 start-0">Digite seus dados</label>
@@ -86,42 +86,54 @@
 
 			
 		</div>
-	<form class="md-3 text-start">
+	<form class="md-3 text-start needs-validation" novalidate>
 
 		<div class="form-label">
 		  <label class = "txt_form" for="Nome">Nome</label>
-		  <input type="text" class="form-control" id="Nome">
+		  <input type="text" class="form-control" id="Nome" required>
+		  <div class="invalid-feedback">
+			Digite um nome!
+		  </div>
 		</div>
 
 		<div class="form-label">
 			<label class = "txt_form" for="Email">Email</label>
-			<input type="text" class="form-control" id="Email">
+			<input type="text" class="form-control" id="Email" required>
+			<div class="invalid-feedback">
+				Digite um Email!
+			</div>
 		</div>
 
 		<div class="form-label">
 			<label class = "txt_form" for="Senha">Senha</label>
-			<input type="password" class="form-control" id="Senha">
+			<input type="password" class="form-control" id="Senha" required>
+			<div class="invalid-feedback">
+				Digite uma senha!
+			</div>
 		</div>
 
 		<label class = "form-label txt_form" for="Dominio">Dominio</label>
 		<img src="../src/images/question-circle-solid.svg"/>
 		<div class="input-group">
-			<input type="text" class="form-control" id="Dominio">
+			<input type="text" class="form-control" id="Dominio" required>
 			<span style ="max-width: 135px;" class="input-group-text txt_form" id="basic-addon2">@selbetti.com.br</span>
+			<div class="invalid-feedback">
+				Digite um Dominio!
+			</div>
 		</div>
 
 		<div class="form-label">
 			<label class = "txt_form" for="Telefone">Telefone</label>
 			<div class="row g-2" >
-				<div class="col-3"><input type="text" class="form-control" id="tel_pais"></div>
-				<div class="col-3"><input type="textr" class="form-control" id="tel_ddd"></div>
-				<div class="col-6"><input type="text" class="form-control" id="tel_num"></div>
+				<div class="col-3"><input type="text" class="form-control" id="tel_pais" required></div>
+				<div class="col-3"><input type="textr" class="form-control" id="tel_ddd" required></div>
+				<div class="col-6"><input type="text" class="form-control" id="tel_num" required></div>
 			</div>
 		</div>
 
 		<div class="row g-3" style="align-items: center;margin-top: 10px;">
 			<div class="checkbox col-1">
-				<input style="width: 22px;height: 22px;" type="checkbox" value="Concordo"> 
+				<input style="width: 22px;height: 22px;" type="checkbox" value="Concordo" required> 
 			</div>
 			<div class="col-7">
 				<label class="txt_gray3">Concordo em receber novidades sobre a Selbetti via email</label>
@@ -134,7 +146,27 @@
 	  </form>
 	  </div>
 	</main>
+<script>
+		(function () {
+	'use strict'
 
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	var forms = document.querySelectorAll('.needs-validation')
+
+	// Loop over them and prevent submission
+	Array.prototype.slice.call(forms)
+		.forEach(function (form) {
+		form.addEventListener('submit', function (event) {
+			if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+			}
+
+			form.classList.add('was-validated')
+		}, false)
+		})
+	})()
+</script>
     
   </body>
 </html>

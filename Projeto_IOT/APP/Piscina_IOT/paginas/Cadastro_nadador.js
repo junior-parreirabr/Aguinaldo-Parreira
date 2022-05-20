@@ -4,7 +4,7 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 const wallpaper = require('../imagens/fundo_piscina.png');
 
 
-export default function Login(){
+export default function Cadastro_Nadador(){
 
     const navigation = useNavigation();
 
@@ -14,17 +14,39 @@ export default function Login(){
             <ImageBackground source={wallpaper} resizeMode="cover" style={styles.image}>
 
                 <View style={styles.form_box}>
-                    <Text style={styles.form_title}>LOGIN</Text>
+                    <Text style={styles.form_title}>CADASTRO NADADOR</Text>
 
                     <View style={styles.row}>
-                        <Text style={styles.form_label}>Login: </Text>
+                        <Text style={styles.form_label}>Nome: </Text>
                         <TextInput style={styles.form_input}></TextInput>
                     </View>
 
                     <View style={styles.row}>
-                        <Text style={styles.form_label}>Senha: </Text>
+                        <Text style={styles.form_label}>Data de nascimento: </Text>
                         <TextInput style={styles.form_input}></TextInput>
                     </View>
+
+                    <View style={styles.row}>
+                        <Text style={styles.form_label}>Email: </Text>
+                        <TextInput style={styles.form_input}></TextInput>
+                    </View>
+
+                    <View style={styles.row}>
+                        <Text style={styles.form_label}>Peso: </Text>
+                        <TextInput style={styles.form_input}></TextInput>
+                    </View>
+
+                    <View style={styles.row}>
+                        <Text style={styles.form_label}>Altura: </Text>
+                        <TextInput style={styles.form_input}></TextInput>
+                    </View>
+
+                    <View style={styles.row}>
+                        <Text style={styles.form_label}>Instituiçao: </Text>
+                        <TextInput style={styles.form_input}></TextInput>
+                    </View>
+
+                    
 
 
                     <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Menu')}>
@@ -71,12 +93,12 @@ const styles = StyleSheet.create({
     form_label:{
         fontSize:16,
         color:'#4C498E',
-        width:'20%'
+        width:'30%'
 
     },
     form_input:{
         backgroundColor:'white',
-        width:'50%',
+        width:'60%',
         padding:5,
     },
     row:{
