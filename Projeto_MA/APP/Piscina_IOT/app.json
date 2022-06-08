@@ -17,13 +17,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Aguina.ChanneLev",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#FFFFFF",
+        "package": "com.Aguina.ChanneLev",
+        "versionCode": 1
+      },
+      "package": "com.Aguina.ChanneLev"
     },
     "web": {
       "favicon": "./assets/favicon.png"
