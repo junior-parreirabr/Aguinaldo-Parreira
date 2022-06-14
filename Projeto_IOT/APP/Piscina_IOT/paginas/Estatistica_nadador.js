@@ -1,38 +1,82 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View,ImageBackground,TextInput,TouchableOpacity} from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import {LineChart} from "react-native-chart-kit";
 const wallpaper = require('../imagens/fundo_piscina.png');
+const Influxdb = require("influxdb-v2");
+
+
+const influxdb = new Influxdb({
+    // host: "8a7708eb18e6.sn.mynetname.net",
+    // port: 5000,
+     host: "20.210.132.42",
+     port: 8086,
+     protocol: "http",
+     token:
+       "ynCP2gPa4OT16BfIRrE7Jq4uGMu1LrFmgaPJgCKZIF_nO7n3Jewa-zlerPm69f-ZKWrZYIr63XoXbDhfPasWpw==",
+   });
+
+
+
+async function getData() {
+
+  
+    const teste = await influxdb.query(
+      { org: '7e377cc6cc59a03f' },
+
+      {
+        query: 'from(bucket: "Aguinaldo_IOT")|> range(start: -30m)|> filter(fn: (r) => r["_measurement"] == "time_ms")'
+      }
+
+    );
+
+    let data = {
+        time_ms: [],
+        instantes:[],
+        instantes_formatado:[],
+    }
+    console.log(teste);
+    for(let i = 0; i < teste[0].length; i++){
+        data.time_ms.push(Number(teste[0][i]._value))
+        data.instantes.push(Date(teste[0][i]._time))
+    }
+
+      data.instantes.map(item => {
+          var date = new Date(item);
+          var str_dmy = date.toLocaleDateString('en-GB');
+          var str_hms = date.toLocaleTimeString('pt-BR');
+          var str_hms_dmy = str_hms + "\n\n" + str_dmy;
+          data.instantes_formatado.push(str_hms);
+          //data.instantes_formatado.push(str_hms_dmy);
+      })
+      
+
+    return data ;
+  
+  }
 
 
 export default function Estatistica_nadador(){
 
     const navigation = useNavigation();
 
+    const [influx_valores,Set_influx_valores] = useState([0]);
+    const [influx_times,Set_influx_times] = useState([]);
+
     const data = {
-        labels: ["12:45", "12:46", "12:47", "12:48", "12:49", "12:50"],
+        labels: influx_times,
         datasets: [
-          {
-            data: [20, 21, 22, 24, 23, 22],
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
-            strokeWidth: 2 // optional
-          },
+         
 
           {
-            data: [7, 7.2, 8, 7.6, 7.7, 7.1],
-            color: (opacity = 1) => `rgba(0, 255, 0, ${opacity})`, // optional
-            strokeWidth: 2 // optional
-          },
-
-          {
-            data: [50, 48, 47, 44, 43, 41],
+            data: influx_valores,
             color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`, // optional
             strokeWidth: 2 // optional
           },
 
           
         ],
-        legend: ["Temperatura","Ph","Tempo"] // optional
+        legend: ["Tempo"] // optional
       };
 
       const chartConfig = {
@@ -49,6 +93,22 @@ export default function Estatistica_nadador(){
         
         
       };
+
+
+      useEffect(()=>{
+
+        //setTimeout(function() {
+            getData().then((r) => {
+                
+              var time_ms_5 = r['time_ms'].slice(-5);
+              var instantes_5 = r['instantes_formatado'].slice(-5);          
+              Set_influx_valores(time_ms_5);
+              Set_influx_times(instantes_5);
+    
+              })
+        //}, 10000);
+
+    },[]);
 
     return(
 

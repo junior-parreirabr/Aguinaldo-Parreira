@@ -3190,6 +3190,13 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
+influxdb-v2@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/influxdb-v2/-/influxdb-v2-1.0.0.tgz#9e9de0fc755add1ec780e102a1410463c8bf9072"
+  integrity sha512-zQEINa2Byhd+iSN4pMjjvRtwIaCI0LeZs8O8Q+K1VPgY1WV+ZMc923LqUwSZXKHMzJkuMP76nSSlkg1PGbaePQ==
+  dependencies:
+    node-fetch "^2.6.1"
+
 inherits@2, inherits@2.0.4, inherits@~2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
@@ -4211,7 +4218,7 @@ node-dir@^0.1.17:
   dependencies:
     minimatch "^3.0.2"
 
-node-fetch@2.6.7, node-fetch@^2.2.0, node-fetch@^2.6.0:
+node-fetch@2.6.7, node-fetch@^2.2.0, node-fetch@^2.6.0, node-fetch@^2.6.1:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==

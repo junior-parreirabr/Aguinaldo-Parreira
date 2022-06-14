@@ -59,7 +59,7 @@ export default function Mediçao(){
             getData().then((r) => {
                 
               var nivel = r;
-              nivel = 2,36 - nivel;
+              nivel = 236 - nivel;
               console.log(r);
               Set_influx_valor(nivel.toFixed(0));
               if(nivel>0 && nivel<=120){

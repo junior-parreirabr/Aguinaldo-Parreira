@@ -37,7 +37,7 @@ async function getData() {
     }
 
     for(let i = 0; i < teste[0].length; i++){
-        data.nivel.push(2,36-Number(teste[0][i]._value))
+        data.nivel.push(236-Number(teste[0][i]._value))
         data.instantes.push(Date(teste[0][i]._time))
     }
 
